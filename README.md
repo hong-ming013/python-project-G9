@@ -26,7 +26,8 @@ program that classifies sentiments effectively.
 4. Output Sentiment label
 
 **Directory**
- python-project-G9/
+python-project-G9/
+
 ├── templates/index.html #Website
 
 ├── flaskcrud.py
