@@ -1,9 +1,11 @@
 This is our python project! :D
 
 **Review Sentinment Analysis**
+
 This is the python project for review sentiment analysis as part of INF1002 Programming Fundementals Project.
 
 **Brief description of the project**
+
 This project aims to analyze and classify sentences based on sentiment. The goal is to automatically determine whether a given
 text expresses a positive, negative or neutral sentiment.
 
@@ -13,6 +15,7 @@ social media. By creating this project, we learned how to preprocess text, apply
 program that classifies sentiments effectively.
 
 **Features**
+
 Process input text
 Preprocess module to tokenize / remove stopwords
 Classify sentiment as positive/negative/neutral
