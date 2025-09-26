@@ -28,11 +28,17 @@ program that classifies sentiments effectively.
 **Directory**
  python-project-G9/
 ├── templates/index.html #Website
+
 ├── flaskcrud.py
+
 ├── preprocessing_words.py
+
 ├── review_sentiment.py
+
 ├── sliding_window.py
+
 ├── word_segmentation.py
+
 └── afinn.txt # sentiment lexicon / data file
 
 **Framework**
