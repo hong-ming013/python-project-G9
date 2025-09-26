@@ -1,5 +1,3 @@
-This is our python project! :D
-
 **Review Sentinment Analysis**
 
 This is the python project for review sentiment analysis as part of INF1002 Programming Fundementals Project.
