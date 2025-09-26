@@ -20,21 +20,17 @@ def index():
         #print(type(sentences_with_scores[1]),type(sentences_with_scores))
 
         # Most positive/negative sentence
-        #most_positive = max(sentences_with_scores, key=lambda x: x[1], default=("", 0))
-        #most_negative = min(sentences_with_scores, key=lambda x: x[1], default=("", 0))
         most_positive = find_most(sentences_with_scores, 1, True)[0]
         most_negative = find_most(sentences_with_scores, 1, False)[0]
-        #print(most_positive,type(most_positive),"hello")
+        #print(most_positive,type(most_positive))
 
         # Sliding window segments
         if len(sentences_with_scores) >= 3:
             segments = sliding_window_sentences(sentences_with_scores, 3)
             #print(segments,type(segments),type(segments[1]))
-            #best_segment = max(segments, key=lambda x: x[1])
-            #worst_segment = min(segments, key=lambda x: x[1])
             best_segment = find_most(segments, 1, True)[0]
             worst_segment = find_most(segments, 1, False)[0]
-            #print(best_segment,type(best_segment),"hello")
+            #print(best_segment,type(best_segment))
             
         else:
             best_segment = ([], 0)
