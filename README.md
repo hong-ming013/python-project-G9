@@ -16,7 +16,7 @@ program that classifies sentiments effectively.
 
 **Features**
 
-Process input text
-Preprocess module to tokenize / remove stopwords
-Classify sentiment as positive/negative/neutral
-WEB UI to submit reviews
+- Process input text
+- Preprocess module to tokenize / remove stopwords
+- Classify sentiment as positive/negative/neutral
+- WEB UI to submit reviews
