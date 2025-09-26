@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis + Word Segmentation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        textarea, input[type="text"] { width: 100%; padding: 10px; margin-top: 5px; }
+        .box { margin-top: 20px; padding: 15px; border: 1px solid #ccc; }
+        .positive { color: green; }
+        .negative { color: red; }
+        ul { padding-left: 20px; }
+    </style>
+</head>
+<body>
+    <h1>Sentiment Analysis + Word Segmentation</h1>
+    <form method="POST">
+        <h3>1. Enter Full Text for Sentiment Analysis:</h3>
+        <textarea name="text_input" placeholder="Enter multi-sentence paragraph here...">{{ request.form.text_input if request.form else "" }}</textarea>
+
+        <h3>2. Enter No-Space Sentence for Segmentation:</h3>
+        <input type="text" name="no_space_input" value="{{ no_space_input or '' }}" placeholder="e.g. thisisagreatmovie">
+
+        <br><br>
+        <input type="submit" value="Analyze">
+    </form>
+
+    {% if sentences %}
+    <div class="box">
+        <h2>Sentence Sentiment Scores</h2>
+        <ul>
+            {% for sentence, score in sentences %}
+                <li>
+                    {{ sentence }}
+                    {% if score > 0 %}
+                        <span class="positive">[+{{ score }}]</span>
+                    {% elif score < 0 %}
+                        <span class="negative">[{{ score }}]</span>
+                    {% else %}
+                        [0]
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="box">
+        <h3>Most Positive Sentence:</h3>
+        <p class="positive">{{ most_positive[0] }} (Score: {{ most_positive[1] }})</p>
+
+        <h3>Most Negative Sentence:</h3>
+        <p class="negative">{{ most_negative[0] }} (Score: {{ most_negative[1] }})</p>
+    </div>
+
+    <div class="box">
+        <h3>Most Positive 3-Sentence Segment:</h3>
+        <p class="positive">{{ best_segment[0] | join(' ') }} (Score: {{ best_segment[1] }})</p>
+
+        <h3>Most Negative 3-Sentence Segment:</h3>
+        <p class="negative">{{ worst_segment[0] | join(' ') }} (Score: {{ worst_segment[1] }})</p>
+    </div>
+
+    <div class="box">
+        <h3>Most Positive Arbitrary-Length Segment:</h3>
+        <p class="positive">{{ best_arbitrary[0] | join(' ') }} (Score: {{ best_arbitrary[1] }})</p>
+
+        <h3>Most Negative Arbitrary-Length Segment:</h3>
+        <p class="negative">{{ worst_arbitrary[0] | join(' ') }} (Score: {{ worst_arbitrary[1] }})</p>
+    </div>
+    {% endif %}
+
+    {% if no_space_input %}
+    <div class="box">
+        <h2>Segmentation of No-Space Sentence</h2>
+        <h4>Input:</h4>
+        <p><strong>{{ no_space_input }}</strong></p>
+
+        <h4>One Valid Segmentation:</h4>
+        {% if one_segmentation %}
+	    {% if one_segmentation is string %}
+                <p>{{ one_segmentation }}</p>
+            {% else %}
+                <p>{{ one_segmentation | join(' ') }}</p>
+            {% endif %}
+        {% else %}
+            <p><em>No valid segmentation found.</em></p>
+        {% endif %}
+
+        <h4>All Valid Segmentations:</h4>
+        {% if all_segmentations %}
+            <ul>
+            {% for seg in all_segmentations %}
+		{% if seg is string %}
+                    <li>{{ seg }}</li>
+                {% else %}
+                    <li>{{ seg | join(' ') }}</li>
+                {% endif %}
+            {% endfor %}
+            </ul>
+        {% else %}
+            <p><em>No segmentations found.</em></p>
+        {% endif %}
+    </div>
+    {% endif %}
+</body>
+</html>
