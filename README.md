@@ -20,3 +20,28 @@ program that classifies sentiments effectively.
 - Preprocess module to tokenize / remove stopwords
 - Classify sentiment as positive/negative/neutral
 - WEB UI to submit reviews
+
+**Architecture**
+1. Input Text -> Preprocessing (tokenization, stopwords removal)
+2. Lexicon-based scoring using afinn.txt
+3. Sliding window / segmentation
+4. Output Sentiment label
+
+**Directory**
+ python-project-G9/
+├── templates/index.html #Website
+├── flaskcrud.py
+├── preprocessing_words.py
+├── review_sentiment.py
+├── sliding_window.py
+├── word_segmentation.py
+└── afinn.txt # sentiment lexicon / data file
+
+**Framework**
+- Flask (Web Framework)
+
+**How to run**
+- python flaskcrud.py
+
+**Demonstrations/Screenshot**
+<img width="1920" height="1758" alt="Screencapture" src="https://github.com/user-attachments/assets/9eb73ecf-c0ff-4901-91c0-0b5ddc4a49ab" />
