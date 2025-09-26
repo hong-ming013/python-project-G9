@@ -20,8 +20,12 @@ def index():
         #print(type(sentences_with_scores[1]),type(sentences_with_scores))
 
         # Most positive/negative sentence
-        most_positive = find_most(sentences_with_scores, 1, True)[0]
-        most_negative = find_most(sentences_with_scores, 1, False)[0]
+        try:
+            most_positive = find_most(sentences_with_scores, 1, True)[0]
+            most_negative = find_most(sentences_with_scores, 1, False)[0]
+        except:
+            most_positive = ("",0)
+            most_negative = ("",0)
         #print(most_positive,type(most_positive))
 
         # Sliding window segments
