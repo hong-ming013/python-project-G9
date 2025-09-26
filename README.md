@@ -49,4 +49,5 @@ python-project-G9/
 - python flaskcrud.py
 
 **Demonstrations/Screenshot**
-<img width="1920" height="1758" alt="Screencapture" src="https://github.com/user-attachments/assets/9eb73ecf-c0ff-4901-91c0-0b5ddc4a49ab" />
+<img width="2518" height="1600" alt="image" src="https://github.com/user-attachments/assets/c50e9763-5a3c-48a5-88ce-311ebae24f88" />
+
