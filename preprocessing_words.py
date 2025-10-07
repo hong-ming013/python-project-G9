@@ -8,13 +8,40 @@ def load_sentiment_dictionary(path: str):
             sentiment_dict[word.lower()] = int(score)
     return sentiment_dict
 
-
 def tokenize_paragraphs(text):
+    abbreviations = ['Mr.', 'Mrs.', 'Ms.', 'Dr.', 'St.', 'Sr.', 'Jr.', 'vs.', 'Prof.', 'Inc.', 'Pte.', 'Ltd.', 'e.g.', 'i.e.', 'etc.']
+
+    sentence_split_pattern = r'(?<=[.!?])(?=\s+|[A-Z])'
+
     paragraphs = [p.strip() for p in text.strip().split('\n') if p.strip()]
     paragraph_sentences = []
+
     for p in paragraphs:
-        sentences = re.split(r'(?<=[.!?])\s+', p)
-        paragraph_sentences.extend(sentences)
+        raw_sentences = re.split(sentence_split_pattern, p)
+        cleaned_sentences = []
+
+        buffer = ''
+        for sentence in raw_sentences:
+            sentence = sentence.strip()
+            if not sentence:
+                continue
+
+            is_abbrev = any(sentence.endswith(abbrev) for abbrev in abbreviations)
+
+            if buffer:
+                buffer += ' ' + sentence
+            else:
+                buffer = sentence
+
+            if not is_abbrev:
+                cleaned_sentences.append(buffer.strip())
+                buffer = ''
+
+        if buffer:
+            cleaned_sentences.append(buffer.strip())
+
+        paragraph_sentences.extend(cleaned_sentences)
+
     return paragraph_sentences
 
 def tokenize_words(sentence):
