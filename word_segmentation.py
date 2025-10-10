@@ -14,7 +14,7 @@ def word_segmentation(s: str, word_dict: set):
                     dp[i].append((sentence + ' ' + s[j:i]).strip())
     for item in reversed(dp):
         if item:  #This checks not '', not [], not None, etc.
-            return item[0]
+            return item[0] #Returns the first element of item
     return ["No valid segmentation found using the given dictionary."]  #If no non-empty item is found
 
 
@@ -34,5 +34,5 @@ def all_segmentations(s: str, word_dict: set):
                     dp[i].append((sentence + ' ' + s[j:i]).strip())
     for item in reversed(dp):
         if item:  #This checks not '', not [], not None, etc.
-            return item
+            return item #Returns item
     return ["No valid segmentation found using the given dictionary."]  #If no non-empty item is found
