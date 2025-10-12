@@ -26,30 +26,8 @@ program that classifies sentiments effectively.
 4. Output Sentiment label
 
 **Directory**
-python-project-G9/
-
-├── templates/index.html #Website
-
-├── tests/test_processing_words.py (Test Case/Edge case for preprocessing_words.py)
-
-├── tests/test_review_sentiment.py (Test Case/Edge case for review_sentiment.py)
-
-├── tests/test_sliding_window.py (Test Case/Edge case for sliding_window.py)
-
-├── tests/test_word_segmentation.py (Test Case/Edge case for word_segmentation.py)
-
-├── flaskcrud.py
-
-├── preprocessing_words.py
-
-├── review_sentiment.py
-
-├── sliding_window.py
-
-├── word_segmentation.py
-
-└── afinn.txt # sentiment lexicon / data file
 ```
+python-project-G9/
 .
 ├── afinn.txt # Sentiment lexicon / data file
 ├── flaskcrud.py
@@ -57,7 +35,7 @@ python-project-G9/
 ├── review_sentiment.py
 ├── sliding_window.py
 ├── templates
-│ └── index.html # Website
+│ └── index.html # Website (Flask)
 ├── tests
 │ ├── test_preprocessing_words.py # Tests / edge cases for preprocessing_words.py
 │ ├── test_review_sentiment.py # Tests / edge cases for review_sentiment.py
@@ -65,6 +43,7 @@ python-project-G9/
 │ └── test_word_segmentation.py # Tests / edge cases for word_segmentation.py
 └── word_segmentation.py
 ```
+
 **Framework**
 - Flask (Web Framework)
 
