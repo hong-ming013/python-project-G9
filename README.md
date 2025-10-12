@@ -50,6 +50,21 @@ python-project-G9/
 
 └── afinn.txt # sentiment lexicon / data file
 
+.
+├── afinn.txt # Sentiment lexicon / data file
+├── flaskcrud.py
+├── preprocessing_words.py
+├── review_sentiment.py
+├── sliding_window.py
+├── templates
+│ └── index.html # Website
+├── tests
+│ ├── test_preprocessing_words.py # Tests / edge cases for preprocessing_words.py
+│ ├── test_review_sentiment.py # Tests / edge cases for review_sentiment.py
+│ ├── test_sliding_window.py # Tests / edge cases for sliding_window.py
+│ └── test_word_segmentation.py # Tests / edge cases for word_segmentation.py
+└── word_segmentation.py
+
 **Framework**
 - Flask (Web Framework)
 
