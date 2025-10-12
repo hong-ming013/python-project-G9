@@ -49,7 +49,7 @@ python-project-G9/
 ├── word_segmentation.py
 
 └── afinn.txt # sentiment lexicon / data file
-
+```
 .
 ├── afinn.txt # Sentiment lexicon / data file
 ├── flaskcrud.py
@@ -64,7 +64,7 @@ python-project-G9/
 │ ├── test_sliding_window.py # Tests / edge cases for sliding_window.py
 │ └── test_word_segmentation.py # Tests / edge cases for word_segmentation.py
 └── word_segmentation.py
-
+```
 **Framework**
 - Flask (Web Framework)
 
